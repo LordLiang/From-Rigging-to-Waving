@@ -1,1 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B9N9911MNC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B9N9911MNC');
+  </script>
+  
+  <meta charset="utf-8">
+  <meta name="description"
+        content="From Rigging to Waving: 3D-Guided Diffusion for Natural Animation of Hand-Drawn Characters">
+  <meta name="keywords" content=" Character Animation, Video Diffusion Model, Secondary Motion, Skeletal Animation">
+  <meta name="viewport" content="width=device-width, initial-scale=0.1">
+  <title>From Rigging to Waving: 3D-Guided Diffusion for Natural Animation of Hand-Drawn Characters</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-tooltip.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!--Title block-->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop" id="top">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">From Rigging to Waving: 3D-Guided Diffusion for Natural Animation of Hand-Drawn Characters</h1>
+          <div class="is-size-3 publication-authors"><span class="author-block">Jie Zhou, Linzi Qu, Miu-Ling Lam, and Hongbo Fu</span></div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="" target="_blank" class="external-link button is-normal is-rounded">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="" target="_blank" class="external-link button is-normal is-rounded">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Github Link. -->
+              <span class="link-block">
+                <a href="https://github.com/LordLiang/From-Rigging-to-Waving" target="_blank" class="external-link button is-normal is-rounded">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+          
+          <div class="columns is-centered has-text-centered is-variable is-8">
+          <div class="column is-centered has-text-centered">
+            <div class="section-links ">
+              <span class="link-block">
+                <a href="#gallery" class="nav-link button-55 is-normal">
+                  <span>Gallery</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#comparisons" class="nav-link button-55 is-normal">
+                  <span>Comparisons</span>
+                </a>
+              </span>
+              
+              <span class="link-block">
+                <a href="#ablation" class="nav-link button-55 is-normal">
+                  <span>Ablation</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#limitations" class="nav-link button-55 is-normal">
+                  <span>Limitations</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Teaser-->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+      <div class="item">
+        <img id="teaser" src="images/fig_teaser.png"/>
+      </div>
+  </div>
+</section>
+
+<!-- Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+        <p>
+          Hand-drawn character animation is a vibrant research area in computer graphics and presents unique challenges in achieving geometric consistency while conveying expressive motion details.
+          Traditional skeletal animation methods maintain geometric consistency but often struggle with complex non-rigid elements like flowing hair and skirts, resulting in unnatural deformation and missing secondary dynamics.
+          In contrast, video diffusion models effectively synthesize physically plausible dynamics, but exhibit real-human-like characteristics and geometric distortions when applied to stylized drawings due to the domain gap.
+          In this work, we propose a novel hybrid animation system that integrates the strengths of skeletal animation and video diffusion priors. 
+          The core idea is to first generate coarse images from characters retargeted with skeletal animations for geometric consistency guidance, and then enhance these images in terms of texture details and secondary dynamics using video diffusion priors.
+          We formulate the enhancement of coarse images as an inpainting task and propose a domain-adapted diffusion model to refine user-masked regions requiring improvement, particularly those involving secondary dynamics.
+          To further enhance motion realism, we propose a Secondary Dynamics Injection (SDI) strategy during the denoising process to incorporate latent features from a pre-trained diffusion model enriched with human motion priors.
+          Additionally, to address unnatural deformation artifacts caused by the integrated hair-body geometry in low-poly single-mesh character modeling, we introduce a Hair Layering Modeling (HLM) technique that employs segmentation maps to separate hair from the body in implicit fields, enabling more natural animation of challenging long-hair characters.
+          Through extensive experiments, we demonstrate that our system outperforms state-of-the-art works in both quantitative and qualitative evaluations.
+        </p>
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section hero is-light">
+<div class="container is-max-desktop">
+  <div class="section-title has-text-centered is-centered">
+    <h2 class="title is-3">Method</h2><br>
+  </div>
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-centered has-text-centered">
+      <img id="pipeline" src="images/fig_pipeline.png"/>
+    </div>
+  </div>  
+</div>
+</section>
+
+<!--Gallery-->
+<section class="section">
+  <div class="container is-widescreen" id="gallery">
+    <div class="link-block ">
+      <a href="#top" class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+      </a>
+    </div>
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Gallery</h2><br>
+    </div>
+    <div class="section is-centered has-text-centered">
+<!--     <video controls autoplay loop muted>
+        <source src="videos/gallery.mp4" type="video/mp4">
+    </video>
+      <div class="title is-6 content has-text-centered">
+        xxx
+      </div> -->
+  </div>
+</section>
+  
+<!-- Comparisons -->
+<section class="section">
+  <div class="container is-widescreen" id="comparisons">
+    <div class="link-block ">
+      <a href="#top" class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+      </a>
+    </div>
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Comparisons to Prior Work</h2><br>
+    </div>
+  <div class="section is-centered has-text-centered">
+    <h2 class="title is-6">Ours vs Skeletal Animation Methods.</h2><br>
+  </div>
+  <div class="section is-centered has-text-centered">
+    <h2 class="title is-6">Ours vs Diffusion-based Methods.</h2><br>
+  </div>
+  </div>
+</section>
+
+<!-- Ablation -->
+<section class="section">
+  <div class="container is-widescreen" id="ablation">
+    <div class="link-block ">
+      <a href="#top" class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+      </a>
+    </div>
+    <h2 class="title is-3 has-text-centered is-centered">Ablation</h2><br>
+  </div>
+  <div class="columns is-centered has-text-centered">
+    <div class="column has-text-centered">
+      <h2 class="title is-5">(a) Hair Layering Modeling</h2>
+      <img src="images/fig_ab0.png" width="50%"/>
+      <div class="title is-6 content has-text-centered">
+        Ablation on our hair layering modeling (HLM) method.
+      </div>
+    </div>
+</div>
+<div class="columns is-centered has-text-centered">
+    <div class="column has-text-centered">
+      <br><h2 class="title is-5">(b) Training Components</h2>
+      <img src="images/fig_ab1.png" width="55%"/>
+        <div class="title is-6 content has-text-centered">
+          Ablations on training  components of our domain-adapted diffusion model.
+        </div>
+    </div> 
+</div>
+<div class="columns is-centered has-text-centered">
+    <div class="column has-text-centered">
+      <br><h2 class="title is-5">(c) Key Components of SDI</h2>
+      <img src="images/fig_ab2.png" width="60%"/>
+        <div class="title is-6 content has-text-centered">
+          Ablations on three key components of our Secondary Dynamics Injection (SDI) strategy. 
+          The following abbreviations are used: Bld for blending, RS for reference switching, and RD for re-denoising.
+        </div>
+    </div> 
+</div>
+<div class="columns is-centered has-text-centered">
+    <div class="column has-text-centered">
+      <br><h2 class="title is-5">(d) The Effectiveness of SDI.</h2>
+      <img src="images/fig_ab3.png" width="60%"/>
+        <div class="title is-6 content has-text-centered">
+          The impact of different values of $\alpha$ between $0.70$ and $0.95$ on the secondary dynamics of the animation results, with $\beta=0.60$.
+        </div>
+      <img src="images/fig_ab4.png" width="60%"/>
+        <div class="title is-6 content has-text-centered">
+          The impact of different values of $\beta$ ($0.50$, $0.60$, $0.70$) on the secondary dynamics of the animation results, with $\alpha=0.95$.
+        </div>
+    </div> 
+</div>
+</section>
+
+<!-- Limitations -->
+<section class="section">
+  <div class="container is-widescreen" id="limitations">
+    <div class="link-block ">
+      <a href="#top" class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+      </a>
+    </div>
+    <h2 class="title is-3 has-text-centered is-centered">Limitations</h2><br>
+  </div>
+
+<div class="columns is-centered has-text-centered">
+  <div class="column has-text-centered">
+    <br><h2 class="title is-5">Inappropriate Edge Extraction</h2>
+    <img src="images/fig_limitation.png" width="60%"/>
+      <div class="title is-6 content has-text-centered">
+          There are still some limitations in our method.
+      </div>
+  </div> 
+</div>
+  
+</section>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+        @inproceedings{zhouqu2025waving,
+          author    = {Zhou, Jie* and Qu, Linzi* and Lam, Miu-Ling and Fu, Hongbo},
+          title     = {From Rigging to Waving: 3D-Guided Diffusion for Natural Animation of Hand-Drawn Characters},
+          booktitle = {SIGGRAPH Asia 2025 Conference Papers},
+          year      = {2025},
+        }
+      </code></pre>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="coming soon">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="coming soon" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website content is licensed under a <a rel="license"
+                                                href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
+            Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a href="https://livesketch.github.io/"> LiveSketch</a> project page. If you want to reuse their <a
+              href="https://github.com/LiveSketch/livesketch.github.io">source code</a>, please credit them appropriately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
 
