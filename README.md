@@ -31,7 +31,7 @@ python inference.py --cfg configs/infer.yaml
 
 ## Training
 
-### **1. Prepare Datasets
+### **1. Prepare Datasets**
 All training dataset can be download from [Baidu](https://pan.baidu.com/s/14GqXTFgK4d8i5wCVOwWtBA).（pwd: r5do）
 After downloading, extract the files and place them in the data folder:
 
@@ -42,7 +42,7 @@ After downloading, extract the files and place them in the data folder:
     |   └---char/ # Reference
 ```
 
-### **2. Run Training Scripts
+### **2. Run Training Scripts**
 To train the domain-adapted model for hand-drawn characters, use the following command:
 
 ```bash
