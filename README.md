@@ -16,6 +16,7 @@ Once downloaded, move the checkpoints to the `checkpoints/` directory. The model
 |---- unianimate_16f_32f_non_ema_223000.pth 
 |---- v2-1_512-ema-pruned.ckpt
 └---- rigging2waving_non_ema_00040000.pth
+```
 
 ## Inference
 
@@ -25,12 +26,19 @@ To generate video clips (32 frames), execute the following command:
 
 ```bash
 python inference.py --cfg configs/infer.yaml
+```
 
 ## Training
 
+### **1. Prepare Datasets
+All training dataset can be download from **
+
+### **2. Run Training Scripts
+To train the domain-adapted model for hand-drawn characters, use the following command:
 
 ```bash
 python train.py --cfg configs/train.yaml
+```
 
 
 ## TODO List
