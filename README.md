@@ -7,7 +7,7 @@ This is the official PyTorch implementation of the 2025 paper: From Rigging to W
 
 ### **2. Download the pretrained checkpoints**
 
-To download the UniAnimate models, please follow the commands provided in the [UniAnimate](https://github.com/ali-vilab/UniAnimate). After that, you can download our domain-adapted model from [Baidu]（https://pan.baidu.com/s/14GqXTFgK4d8i5wCVOwWtBA?pwd=r5do）.
+To download the UniAnimate models, please follow the commands provided in the [UniAnimate](https://github.com/ali-vilab/UniAnimate). After that, you can download our domain-adapted model from [Baidu](https://pan.baidu.com/s/14GqXTFgK4d8i5wCVOwWtBA?pwd=r5do).
 
 Once downloaded, move the checkpoints to the `checkpoints/` directory. The model weights will be organized in the `./checkpoints/` directory as follows:
 
@@ -31,7 +31,7 @@ python inference.py --cfg configs/infer.yaml
 ## Training
 
 ### **1. Prepare Datasets
-All training dataset can be download from [Baidu]（https://pan.baidu.com/s/14GqXTFgK4d8i5wCVOwWtBA?pwd=r5do）.
+All training dataset can be download from [Baidu](https://pan.baidu.com/s/14GqXTFgK4d8i5wCVOwWtBA?pwd=r5do).
 After downloading, extract the files and place them in the data folder:
 
 ```./data/
