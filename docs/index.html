@@ -44,7 +44,8 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title">From Rigging to Waving: 3D-Guided Diffusion for Natural Animation of Hand-Drawn Characters</h1>
-          <div class="is-size-3 publication-authors"><span class="author-block">Jie Zhou, Linzi Qu, Miu-Ling Lam, and Hongbo Fu</span></div>
+          <div class="is-size-3 publication-authors"><span class="author-block">Jie Zhou*, Linzi Qu*, Miu-Ling Lam, and Hongbo Fu</span></div>
+          <div class="is-size-5 publication-authors"><span class="author-block">*Equal Contributions</span></div>
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- arXiv Link. -->
@@ -81,11 +82,6 @@
           <div class="columns is-centered has-text-centered is-variable is-8">
           <div class="column is-centered has-text-centered">
             <div class="section-links ">
-              <span class="link-block">
-                <a href="#gallery" class="nav-link button-55 is-normal">
-                  <span>Gallery</span>
-                </a>
-              </span>
               <span class="link-block">
                 <a href="#comparisons" class="nav-link button-55 is-normal">
                   <span>Comparisons</span>
@@ -146,7 +142,7 @@
 
 <!-- Method -->
 <section class="section hero">
-<div class="container is-max-desktop">
+<div class="container is-widescreen">
   <div class="section-title has-text-centered is-centered">
     <h2 class="title is-3">Method</h2><br>
   </div>
@@ -155,6 +151,90 @@
       <img id="pipeline" src="images/method/fig_pipeline.png"/>
     </div>
   </div>  
+</div>
+</section>
+
+<!--Comparisons-->
+<section class="section hero is-light">
+  <div class="container is-max-desktop" id="comparisons">
+    <div class="link-block ">
+      <a href="#top" class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+      </a>
+    </div>
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Comparisons</h2><br>
+    </div>
+    <div class="section is-centered has-text-centered">
+    <video controls autoplay loop muted>
+        <source src="video/rigging2waving.mp4" type="video/mp4">
+    </video>
+      <div class="title is-6 content has-text-centered">
+        We test our method on hand-drawn characters from <a href="https://graphics-research-group.github.io/SketchAnim/"> SketchAnim Dataset</a> and <a href="https://github.com/facebookresearch/AnimatedDrawings"> Amateur Drawings Dataset</a>.
+      </div>
+  </div>
+</section>
+
+<!-- Ablation -->
+<section class="section">
+  <div class="container is-max-desktop" id="ablation">
+    <div class="link-block ">
+      <a href="#top" class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+      </a>
+    </div>
+    <h2 class="title is-3 has-text-centered is-centered">Ablation</h2><br>
+  </div>
+  <div class="columns is-centered has-text-centered">
+    <div class="column has-text-centered">
+      <h2 class="title is-5">(a) Ablation on HLM </h2>
+      <img src="images/ablation/fig_ab0.png" width="55%"/>
+    </div>
+</div>
+<div class="columns is-centered has-text-centered">
+    <div class="column has-text-centered">
+      <br><h2 class="title is-5">(b) Ablation on Training Components of 𝑣𝜃 </h2>
+      <img src="images/ablation/fig_ab1.png" width="55%"/>
+    </div> 
+</div>
+<div class="columns is-centered has-text-centered">
+    <div class="column has-text-centered">
+      <br><h2 class="title is-5">(c) Ablation on SDI </h2>
+      <img src="images/ablation/fig_ab2.png" width="55%"/>
+    </div> 
+</div>
+<div class="columns is-centered has-text-centered">
+    <div class="column has-text-centered">
+      <br><h2 class="title is-5">(d) Ablation on Key Components of SDI </h2>
+      <img src="images/ablation/fig_ab3.png" width="58%"/>
+    </div> 
+</div>
+<div class="columns is-centered has-text-centered">
+    <div class="column has-text-centered">
+      <br><h2 class="title is-5">(e) Ablation on Key Parameters of SDI </h2>
+      <img src="images/ablation/fig_ab4_1.png" width="49%"/>
+      <div class="title is-6 content has-text-centered">
+
+      </div>
+      <img src="images/ablation/fig_ab4_2.png" width="49%"/>
+    </div> 
+</div>
+</section>
+
+<!-- Limitations -->
+<section class="section">
+  <div class="container is-max-desktop" id="limitations">
+    <div class="link-block ">
+      <a href="#top" class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+      </a>
+    </div>
+    <h2 class="title is-3 has-text-centered is-centered">Limitations</h2><br>
+  </div>
+  <div class="columns is-centered has-text-centered">
+  <div class="column has-text-centered">
+    <img src="images/limitation/fig_limitation.png" width="60%"/>
+  </div> 
 </div>
 </section>
 
